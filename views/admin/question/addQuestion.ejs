@@ -1,0 +1,78 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>Add Post</h2>
+  <div class="text-right">
+    <a href="/admin/test/question" class="btn btn-primary">Back to Question</a>
+
+</div>
+  <form action="/admin/test/addQuestion" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+   
+    <% if(question=="1"){%>
+    <input type="hidden" class="form-control"  value="1" name="cnt" id="title" />
+    <% }else{ %>
+    <input type="hidden" class="form-control"  value="<%= question[0].count+1 %>" name="cnt" id="title" />
+    <% } %>
+    <div class="form-group">
+      <label for="email">Exam:</label>
+     
+      <select name="exam" class="form-control" id="">
+        <% subjects.forEach(function(subject){ %>
+        <option value="<%= subject.slug %>"><%= subject.title %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="email">subject:</label>
+      <select name="subject" class="form-control" id="">
+        <% exams.forEach(function(exam){ %>
+        <option value="<%= exam.slug %>"><%= exam.examTitle %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="email">title:</label>
+      <input type="text" class="form-control"  value="<%= title %>" name="title" id="title" />
+    </div>
+   
+
+    <div class="form-group">
+      <label for="email">option1:</label>
+      <textarea name="option1" id="content" cols="50"  value="<%= option1 %>" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">option2:</label>
+      <textarea name="option2" id="content" cols="50"  value="<%= option2 %>" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">option3:</label>
+      <textarea name="option3" id="content" cols="50"  value="<%= option3 %>" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">option4:</label>
+      <textarea name="option4" id="content" cols="50"  value="<%= option4 %>" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">option5:</label>
+      <textarea name="option5" id="content" cols="50"  value="<%= option5 %>" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">Marks Per Right Answer:</label>
+      <input type="text" class="form-control" value="<%= rightMarks %>"  name="rightMarks" id="slug" />
+
+    </div>
+    <div class="form-group">
+      <label for="email">Marks Per Wrong Answer:</label>
+      <input type="text" class="form-control" value="<%= wrongMarks %>"  name="wrongMarks" id="slug" />
+
+    </div>
+    <div class="form-group">
+      <label for="email">Right Option:</label>
+      <input type="text" class="form-control" value="<%= rightOption %>"  name="rightOption" id="slug" />
+    </div>
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<%- include('../../partial/admin/footer') %>

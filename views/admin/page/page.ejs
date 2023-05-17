@@ -1,0 +1,56 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>All Page</h2>
+  <div class="text-right">
+    <a href="/admin/page/getAddPage" class="btn btn-primary align-right">Add Page</a>
+</div>
+<br>
+<div class="table-responsive">
+  <table class="table" id="page">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <% pages.forEach(function(page){ %>
+      <tr>
+        <td><%= page.title %></td>
+        <% if(page.image==""){ %>
+          <td><img src="/image/noimage.png" alt="" width="100px"></td>
+  
+          <% }else{%>
+        <td><img src="/image/pages/<%= page.image %>" alt="" width="100px"></td>
+        <% } %>
+        <td><a href="/admin/page/getEditPage/<%= page.id %>">Edit</a></td>
+        <td><a href="/admin/page/deletePage/<%= page.id %>">Delete</a></td>
+      </tr>
+      <% }) %> -->
+    </tbody>
+  </table>
+</div>
+</div>
+<%- include('../../partial/admin/footer') %>
+<script>
+	$(document).ready(function () {
+		const customer = $("#page").DataTable({
+			processing: true,
+			serverSide: true,
+			ajax: {
+				url: `/admin/page/list`,
+				type: "POST",
+        data: function (d) {
+					console.log(d)
+				},
+			},
+			columns: [{ data: "title" }, { data: `image`, }, { data: `edit` }, { data: `delete`}],
+		});
+ 
+ 
+ 
+	});
+</script> 

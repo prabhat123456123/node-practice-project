@@ -1,0 +1,166 @@
+<%- include('../../partial/admin/header') %>
+<div class="container">
+  <h2>All Post</h2>
+ 
+  <div class="text-right">
+    <div class="row" style="margin-left: 100px;">
+      <div class="md-col-4">
+  
+      </div>
+     
+      <div class="md-col-4">
+    
+      </div>
+      <div class="md-col-4">
+        <input type="text" id="daterange_textbox" class="form-control" readonly />
+    
+      </div>
+    </div>
+    <a href="/admin/post/getPDF" class="btn btn-success align-right">Export Data as PDF</a>
+    <a href="/admin/post/getExcel" class="btn btn-success align-right">Export Data as Excel</a>
+    <a href="/admin/post/getAddPost" class="btn btn-primary align-right">Add Post</a>
+</div>
+<br>
+ 
+  <table class="
+						table table-bordered  table-striped
+						dt-responsive
+						nowrap
+					" id="postTable">
+    
+   
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+ 
+  <form action="/admin/post/excel" method="POST" enctype="multipart/form-data">
+   
+    <div class="form-group">
+      <label for="email">excel:</label>
+      <input type="file" class="form-control" name="excel" id="excel" />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<%- include('../../partial/admin/footer') %>
+
+    <script>
+
+$(document).ready(function(){
+
+    
+    const customer = $("#postTable").DataTable({
+			processing: true,
+			serverSide: true,
+			lengthChange: !1,
+			"autoWidth": false,
+			responsive: true,
+			"scrollX": true,
+			 dom: 'Bfrtip',
+			buttons: [
+				 'csv'
+			],
+			ajax: {
+				url: `/admin/post/get-posts`,
+				type: "POST",
+			
+			},
+			columns: [{ data: "title" }, { data: "image" }, {data:"edit"},{data:"delete"}],
+		});
+fetch_data();
+    var sale_chart;
+
+    function fetch_data(start_date = '', end_date = '')
+    {
+        var dataTable = $('#postTable').DataTable({
+            "processing" : true,
+            "serverSide" : true,
+            "order" : [],
+            "ajax" : {
+                url:"/admin/post/search",
+                type:"POST",
+                data:{action:'fetch', start_date:start_date, end_date:end_date}
+            },
+            "drawCallback" : function(settings)
+            {
+                var sales_date = [];
+                var sale = [];
+
+                for(var count = 0; count < settings.aoData.length; count++)
+                {
+                    sales_date.push(settings.aoData[count]._aData[2]);
+                    sale.push(parseFloat(settings.aoData[count]._aData[1]));
+                }
+
+                var chart_data = {
+                    labels:sales_date,
+                    datasets:[
+                        {
+                            label : 'Sales',
+                            backgroundColor : 'rgb(255, 205, 86)',
+                            color : '#fff',
+                            data:sale
+                        }
+                    ]   
+                };
+
+                var group_chart3 = $('#bar_chart');
+
+                if(sale_chart)
+                {
+                    sale_chart.destroy();
+                }
+
+                sale_chart = new Chart(group_chart3, {
+                    type:'bar',
+                    data:chart_data
+                });
+            }
+        });
+    }
+ 
+    
+
+var start = moment().subtract(29, 'days');
+var end = moment();
+
+function cb(start, end) {
+    $('#daterange_textbox').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+}
+
+$('#daterange_textbox').daterangepicker({
+    startDate: start,
+    endDate: end,
+    ranges: {
+       'Today': [moment(), moment()],
+       'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+       'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+       'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+       'This Month': [moment().startOf('month'), moment().endOf('month')],
+       'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    }
+}, function(start, end){
+
+    $('#postTable').DataTable().destroy();
+
+    fetch_data(start, end);
+
+});
+
+cb(start, end);
+
+
+
+});
+
+</script>
+ 

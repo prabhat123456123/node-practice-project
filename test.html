@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <form action="/message" method="POST">
+        <input type="text" name="name">
+        <input type="text" name="email">
+        <input type="text" name="pass">
+        <input type="submit" name="submit">
+
+    </form>
+   
+</body>
+</html>
+<script>
+
+    getAttendance();
+	
+	
+		
+	function getAttendance() {
+		alert(region)
+		
+		startDate = $("#date").data("daterangepicker").startDate.format("YYYY-MM-DD");
+		endDate = $("#date").data("daterangepicker").endDate.format("YYYY-MM-DD");
+
+		$.ajax({
+			url: "/attendance/report",
+			type: "post",
+			data: {
+				startDate: startDate,
+				endDate: endDate,
+				region:region,
+			},
+			dataType: "json",
+			success: function (data) {
+				let columns = [];
+				columns = [{ title: "Employee Name" }];
+
+				let dataArray = [],
+					time = [],
+					finalData = [];
+
+				if (data.code == "1") {
+					if ($.fn.dataTable.isDataTable("#attendance")) {
+						$("#attendance").DataTable().destroy();
+						$("#attendance").empty();
+					}
+				
+
+				
+					for (let j = 0; j < data.dateArray.length; j++) {
+						columns.push({ title: data.dateArray[j].date });
+					}
+
+					$("#attendance").DataTable({
+						dom: "Bfrtip",
+						buttons: [
+							{
+								extend: "csvHtml5",
+								title: `Attendance report`,
+							},
+							{
+								extend: "excelHtml5",
+								title: `Attendance report`,
+							},
+						],
+						data: data.data,
+						columns: columns,
+					});
+				} else {
+					// table.clear().draw();
+				}
+			},
+		});
+	}
+
+</script>

@@ -1,0 +1,52 @@
+<%- include('../../partial/admin/header') %>
+<div class="container">
+  <h2>All Comment</h2>
+  <% if(count>0){ %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Comment</th>
+        <th>Approve</th>
+        <th>User</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% comments.forEach(function(comment){ %>
+   
+      <tr>
+        <td><%= comment.body %></td>
+        <td><%= comment.approveComment %></td>
+        <td><%= comment.user %></td>
+        <td><a href="">Edit</a></td>
+        <td><a href="">Delete</a></td>
+      </tr>
+
+      <% }) %>
+    </tbody>
+  </table>
+  <%}else{%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Comment</th>
+        <th>Approve</th>
+        <th>User</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>No Comment Found</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } %>
+</div>
+<%- include('../../partial/admin/footer') %>

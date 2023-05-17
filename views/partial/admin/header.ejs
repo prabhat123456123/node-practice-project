@@ -1,0 +1,153 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SB Admin - Start Bootstrap Template</title>
+    <!-- Bootstrap core CSS-->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom fonts for this template-->
+    <link
+      href="/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin.css" rel="stylesheet" />
+    <link href="/css/bootstrap-switch.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+      integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  </head>
+
+  <body class="fixed-nav sticky-footer bg-dark" id="page-top" onload="startTime()">
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+      id="mainNav"
+    >
+      <a class="navbar-brand" href="/">Home Page</a>
+      <button
+        class="navbar-toggler navbar-toggler-right"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <%- include('./admin-sidebar-nav') %>
+        
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left"></i>
+            </a>
+          </li>
+        </ul>
+       
+        <ul class="navbar-nav ml-auto">
+        <div class="row"> <i class="fa fa-clock-o text-white" style="font-size:30px;display: inline-flex;">  <h3 id="txt" class="text-white"></h3></i></div>
+         
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
+            <form class="form-inline my-2 my-lg-0 mr-lg-2">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Search for..."
+                />
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+              </div>
+            </form>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mr-lg-2"
+              id="alertsDropdown"
+              href="#"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-user"></i><% if(user){ %> <%= user.firstName %> <%
+              } %> 
+            
+              <span class="indicator text-success d-none d-lg-block">
+                <i class="fa fa-fw fa-circle"></i>
+              </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+              <h6 class="dropdown-header">Profile: <i class="fa fa-fw fa-circle text-success"></i></h6>
+              <div class="dropdown-divider"></div>
+              <a class="nav-link" href="/user/profile/<%= user.id %>">
+                <span class="text-success">
+                  <strong>
+                    <i class="fa fa-user"></i>Profile Detail</strong
+                  >
+                </span>
+               
+              
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                <span class="text-danger">
+                  <strong>
+                    <i class="fa fa-fw fa-sign-out"></i>Logout
+                    </strong
+                  >
+                </span>
+               
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="nav-link" href="/user/getChangePassword">
+                <span class="text-success">
+                  <strong>
+                    <i class="fa fa-lock"></i>
+                   
+                    Change Password</strong
+                  >
+                </span>
+              
+              </a>
+            
+            </div>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </ul>
+      </div>
+    </nav>
+    <div class="content-wrapper">
+      <div class="container">
+      
+        <% if(errors){ %> <% errors.forEach(function(sts){ %>
+
+        <div class="alert alert-danger" role="alert">
+          <h4 class="text-center"><%= sts.message %></h4>
+        </div>
+        <% }); %> <% } %>                               
+      </div>
+      <%- include('../frontend/form-msgs') %>
+   

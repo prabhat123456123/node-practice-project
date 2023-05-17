@@ -1,0 +1,47 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>All Category</h2>
+  <div class="text-right">
+    <a href="/admin/category/getAddCategory" class="btn btn-primary align-right">Add Category</a>
+</div>
+  <br>
+  <% if(count>0){ %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.forEach(function(category){ %>
+      <tr>
+        <td><%= category.title %></td>
+        <td><a href="">Edit</a></td>
+        <td><a href="">Delete</a></td>
+      </tr>
+   <% }) %>
+    </tbody>
+  </table>
+  <%}else{%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>No Category Found</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } %>
+</div>
+<%- include('../../partial/admin/footer') %>

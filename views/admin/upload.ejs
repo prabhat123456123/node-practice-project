@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Uppy</title>
+    <link href="https://releases.transloadit.com/uppy/v3.3.1/uppy.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="drag-drop-area"></div>
+
+    <script type="module">
+
+      import {Uppy,Dashboard, tus} from "https://releases.transloadit.com/uppy/v3.3.1/uppy.min.mjs"
+      // const StatusBar = Uppy.StatusBar;
+      // const Informer = Uppy.Informer;
+      // const Webcam = Uppy.Webcam;
+      // // const Dashboard = Uppy.Dashboard;
+      // const GoogleDrive = Uppy.GoogleDrive;
+      // const Dropbox = Uppy.Dropbox;
+      // const Instagram = Uppy.Instagram;
+      // const Facebook = Uppy.Facebook;
+      // const OneDrive = Uppy.OneDrive;
+      // const ScreenCapture = Uppy.ScreenCapture;
+      // const ImageEditor = Uppy.ImageEditor;
+      // const DropTarget = Uppy.DropTarget;
+      // const Compressor = Uppy.Compressor;
+      // const RemoteSources = Uppy.RemoteSources;
+//       import Uppy, { debugLogger } from '@uppy/core'
+// import Dashboard from '@uppy/dashboard'
+// import RemoteSources from '@uppy/google-drive'
+// import ImageEditor from '@uppy/image-editor'
+// import Form from '@uppy/form'
+// import Webcam from '@uppy/webcam'
+// import Audio from '@uppy/audio'
+// import ScreenCapture from '@uppy/screen-capture'
+// import Tus from '@uppy/tus'
+// import DropTarget from '@uppy/drop-target'
+// import Compressor from '@uppy/compressor'
+
+
+
+const COMPANION_URL = "http://companion.uppy.io"
+const COMPANION_ALLOWED_HOSTS = ['https://my-site.com']
+
+const uppy = new Uppy({
+    id: 'uppy',
+  autoProceed: false,
+  allowMultipleUploadBatches: true,
+  debug: false,
+  restrictions: {
+    maxFileSize: null,
+    minFileSize: null,
+    maxTotalFileSize: null,
+    maxNumberOfFiles: null,
+    minNumberOfFiles: null,
+    allowedFileTypes: null,
+    requiredMetaFields: [],
+  },
+  meta: {},
+  onBeforeFileAdded: (currentFile, files) => currentFile,
+  onBeforeUpload: (files) => {},
+  locale: {},
+  // store: new DefaultStore(),
+  // logger: justErrorsLogger,
+  infoTimeout: 5000,
+ })
+  // The main UI that shows files, progress and holds all plugins
+  .use(Dashboard, {
+    target: '#drag-drop-area',
+    inline: true,
+    height: 470,
+    metaFields: [
+      { id: 'name', name: 'Name', placeholder: 'file name' },
+      { id: 'caption', name: 'Caption', placeholder: 'add description' },
+    ],
+    note: 'Images and video only, 2–3 files, up to 1 MB',
+  })
+  // All remote services like Instagram and Google Drive in one package
+  
+ 
+  // Upload
+  .use(tus, { endpoint: 'http://localhost:5600/uploads' })
+
+uppy.on('complete', result => {
+  console.log('successful files:', result.successful)
+  console.log('failed files:', result.failed)
+})
+    //   var uppy = new Uppy({
+    // debug: true, autoProceed: false,
+    // onBeforeFileAdded: (currentFile, files) => {
+    //   const name = Date.now() + '_' + currentFile.name
+    //   const modifiedFile = {
+    //     ...currentFile,
+    //     meta: {
+    //          ...currentFile.meta,
+    //          name
+    //      },
+    //     name
+    //   };
+    //   uppy.log(modifiedFile.name)
+    //   return modifiedFile
+    // }})
+      //   .use(Dashboard, {
+      //     inline: true,
+      //     target: '#drag-drop-area'
+      //   })
+      //   .use(Tus, {endpoint: 'http://localhost:5600/uploads'})
+
+      // uppy.on('complete', (result) => {
+      //   console.log('Upload complete! We’ve uploaded these files:', result.successful)
+      // })
+    </script>
+  </body>
+</html>
+

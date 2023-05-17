@@ -1,0 +1,28 @@
+
+
+<% if (error_message.length>0) {%>
+<div class="alert alert-danger" role="alert">
+ <h4 class="text-center"><%= error_message  %></h4> 
+</div>
+
+<% } %>
+
+
+<% if(error.length>0){%>
+<div class="alert alert-danger" role="alert">
+  <h4 class="text-center"><%= error  %></h4> 
+ 
+ 
+</div>
+
+<% } %>
+
+<% if(success_message.length>0){%>
+<div class="alert alert-success" role="alert">
+  <h4 class="text-center"><%= success_message  %></h4> 
+
+ 
+</div>
+
+<% } %>
+

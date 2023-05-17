@@ -1,0 +1,454 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="container-fluid">
+<div class="header">
+<div class="row" style="background: #b3caff;">
+<div class="col-sm-6">
+
+<h4 class="text-left" style="padding-top: 5px;padding-left:90px;">Exam Conducted By Your Institute <br>
+you are very best in class performance</h4>
+
+</div>
+<div class="col-sm-1 "></div>
+<div class="col-sm-2 ">
+<h4 style="padding-top: 30px;">Time Left:12:20</h4>
+</div>
+
+<div class="col-sm-3 ">
+<div class="align-right">
+<img class="card-img-top align-right" style="display: block;
+margin-left: auto;
+margin-right: auto;"src="http://placehold.it/50x50" alt="Card image cap">
+
+<h5 class="card-title text-center">Name:Prabhat Pandey</h5>
+<h5 class="card-title text-center">Email:PrabhatPandey@gmail.com</h5>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="container mb-5">
+
+<ul class="nav nav-pills">
+<li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+<li><a data-toggle="pill" href="#menu1">Reasoning</a></li>
+<li><a data-toggle="pill" href="#menu2">English</a></li>
+<li><a data-toggle="pill" href="#menu3">MATHs</a></li>
+</ul>
+<div class="row">
+
+<div class="col-sm-8">
+
+<div class="tab-content">
+
+<div id="home" class="tab-pane fade in active">
+
+<% question.forEach(function(quest){ %>
+<span>(5 of <%= count %>) +ve&nbsp; <%= question.rightMarks %>&nbsp;&nbsp;&nbsp;-ve&nbsp; <%= question.wrongMarks %></span>
+<div class="col-8">
+<h4 class="fw-bold mt-5">2. <%= quest.questionTitle %></h4>
+
+<hr>
+
+<div class="row" style="height: 45%;">
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" <% if(quest.rightOption=="1"){%> checked="checked" <%}%> id="five"> 
+<%= quest.option1 %>
+</label>
+</div>
+
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" <% if(quest.rightOption=="2"){%> checked="checked" <%}%> id="five"> 
+<%= quest.option2 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" <% if(quest.rightOption=="3"){%> checked="checked" <%}%> id="five"> 
+<%= quest.option3 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" <% if(quest.rightOption=="4"){%> checked="checked" <%}%> id="five"> 
+<%= quest.option4 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" <% if(quest.rightOption=="5"){%> checked="checked" <%}%> id="five"> 
+<%= quest.option5 %>
+</label>
+</div>
+</div>
+
+<div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+<% if(quest.count==1){%> 
+<button class="btn btn-primary prev" style="margin-right:5px;" value="<%= quest.id %>" disabled>Previous</button>
+<%}else{ %>
+<button class="btn btn-primary prev" style="margin-right:5px;" value="<%= quest.id %>">Previous</button>
+<% } %>
+<button style="margin-right:5px;" class="btn btn-success save" value="<%= quest.id %>">Save & Next</button> <button class="btn btn-info clear" value="<%= quest.id %>">Clear Response</button></div>
+
+</div>
+<% }) %>
+</div>
+
+
+<div id="menu1" class="tab-pane fade">
+<h3>Reasoning</h3>
+
+<% question.forEach(function(quest){ %>
+<span>(5 of <%= count %>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ve&nbsp; <%= question.rightMarks %>&nbsp;&nbsp;&nbsp;-ve&nbsp; <%= question.wrongMarks %></span>
+<div class="col-8">
+<h4 class="fw-bold mt-5">2. <%= quest.questionTitle %></h4>
+
+<hr>
+
+<div class="row" style="height: 45%;">
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option1 %>
+</label>
+</div>
+
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option2 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option3 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option4 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option5 %>
+</label>
+</div>
+</div>
+
+<div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><a href="" class="btn btn-primary " style="margin-right:5px;">Previous</a><a href="" style="margin-right:5px;" class="btn btn-success">Save & Next</a> <a href="" class="btn btn-info">Clear Response</a></div>
+
+</div>
+<% }) %>
+</div>
+
+<div id="menu2" class="tab-pane fade">
+<h3>English</h3>
+
+<% question.forEach(function(quest){ %>
+<span>(5 of <%= count %>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ve&nbsp; <%= question.rightMarks %>&nbsp;&nbsp;&nbsp;-ve&nbsp; <%= question.wrongMarks %></span>
+<div class="col-8">
+<h4 class="fw-bold mt-5">2. <%= quest.questionTitle %></h4>
+
+<hr>
+
+<div class="row" style="height: 45%;">
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option1 %>
+</label>
+</div>
+
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option2 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option3 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option4 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option5 %>
+</label>
+</div>
+</div>
+
+<div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><a href="" class="btn btn-primary " style="margin-right:5px;">Previous</a><a href="" style="margin-right:5px;" class="btn btn-success">Save & Next</a> <a href="" class="btn btn-info">Clear Response</a></div>
+
+</div>
+<% }) %>
+</div>
+
+
+<div id="menu3" class="tab-pane fade">
+<h3>MATHs</h3>
+
+<% question.forEach(function(quest){ %>
+<span>(5 of <%= count %>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ve&nbsp; <%= question.rightMarks %>&nbsp;&nbsp;&nbsp;-ve&nbsp; <%= question.wrongMarks %></span>
+<div class="col-8">
+<h4 class="fw-bold mt-5">2. <%= quest.questionTitle %></h4>
+
+<hr>
+
+<div class="row" style="height: 45%;">
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option1 %>
+</label>
+</div>
+
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option2 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option3 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option4 %>
+</label>
+</div>
+<div class="col-md-6"> 
+<label class="radio-inline" style="margin:10px; font-size: 16px;">
+<input type="radio" name="box" id="five"> 
+<%= quest.option5 %>
+</label>
+</div>
+</div>
+
+<div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><a href="" class="btn btn-primary " style="margin-right:5px;">Previous</a><a href="" style="margin-right:5px;" class="btn btn-success">Save & Next</a> <a href="" class="btn btn-info">Clear Response</a></div>
+
+</div>
+<% }) %>
+</div>
+
+</div>
+</div>
+
+
+
+<div class="col-sm-4">
+
+<h3>Question Templates</h3>
+<div id="quest" style="overflow:scroll; height:350px;"> 
+<% let i=0 %>   
+<% questions.forEach(function(question){
+i++; %>
+<div class="col-md-2"> 
+<% if(question.status=="saved"){%>
+<button class="btn btn-success temp" id="template_<%= question.id %>" name="id" style="width: 50px; margin: 2px;" value="<%= question.id %>"> <%= i %></button>
+<% }else{%> 
+<button class="btn btn-default temp" id="template_<%= question.id %>" name="id" style="width: 50px; margin: 2px;" value="<%= question.id %>"> <%= i %></button>
+<%}%>
+<input type="hidden" id="next_tab" value="0" />
+<input type="hidden" id="prev_tab" value="0" />
+
+</div>
+<%})%>
+
+</div>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<a href="" class="btn btn-success  mt-10">Submit</a>
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+
+$(document).ready(()=>{
+
+$(document).on('click','.temp',function(){
+
+const id = $(this).val();
+const  idd = id.trim();
+// alert(id);
+$.ajax({
+type:"POST",
+url:"/test/Question",
+data:{id:idd},
+cache:false,
+success:function(data){
+console.log(data)
+$("#home").empty();
+$("#quest").empty();
+let i=0 
+let que = data.questions;
+let quen = data.question;
+que.forEach(function(question){
+i++;
+$("#quest").append('<div class="col-md-2"><button class="btn btn-default temp" id="template_'+question._id+'" name="id" style="width: 50px; margin: 2px;" value=" '+question._id+' ">' +i+'</button><input type="hidden" id="next_tab" value="0" /><input type="hidden" id="prev_tab" value="0" /></div>');
+
+})
+quen.forEach(function(qst){
+i++;
+$("#home").append('<span>(5 of '+ data.count+') +ve&nbsp; '+ qst.rightMarks+'&nbsp;&nbsp;&nbsp;-ve&nbsp; '+ qst.wrongMarks+'</span><div class="col-8"><h4 class="fw-bold mt-5">2. '+qst.questionTitle+'</h4><hr><div class="row" style="height: 45%;"><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option1+' %></label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+qst.option2+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+qst.option3+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option4+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option5+'</label></div></div><div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary prev" style="margin-right:5px;" value="'+qst._id+'">Previous</button><button style="margin-right:5px;" class="btn btn-success save" value="'+qst._id+'">Save & Next</button> <button class="btn btn-info clear" value="'+qst._id+'">Clear Response</button></div></div>');
+
+})
+
+}
+});
+
+
+})
+$(document).on('click','.save',function(){
+ 
+let id = $(this).val();
+let  idd = id.trim();
+// alert(id);
+let checkLast = $('#next_tab').val();
+alert(checkLast);
+if(checkLast!==''){
+$.ajax({
+type:"POST",
+url:"/test/saveQuestion",
+data:{id:idd},
+cache:false,
+success:function(data){
+  let nextNo = data.question[0]._id;
+  
+console.log(data)
+$("#home").empty();
+$("#quest").empty();
+
+
+let i=0 
+let que = data.questions;
+let quen = data.question;
+
+
+que.forEach(function(question){
+i++;
+let status = question.status;
+let btn_type = (status === 'saved')?'btn-success':'btn-default';
+$("#quest").append(`<div class="col-md-2"><button class="btn ${btn_type} temp" id="template_${question._id}" name="id" style="width: 50px; margin: 2px;" value=" ${question._id} "> ${i}</button><input type="hidden" id="next_tab" value="0" /><input type="hidden" id="prev_tab" value="0" /></div>`);
+
+})
+quen.forEach(function(qst){
+i++;
+$("#home").append('<span>(5 of '+ data.count+') +ve&nbsp; '+ qst.rightMarks+'&nbsp;&nbsp;&nbsp;-ve&nbsp; '+ qst.wrongMarks+'</span><div class="col-8"><h4 class="fw-bold mt-5">2. '+qst.questionTitle+'</h4><hr><div class="row" style="height: 45%;"><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option1+' %></label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+qst.option2+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+qst.option3+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option4+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option5+'</label></div></div><div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary prev" style="margin-right:5px;" id="prev" value="'+qst._id+'">Previous</button><button style="margin-right:5px;" class="btn btn-success save" value="'+qst._id+'">Save & Next</button> <button class="btn btn-info clear" value="'+qst._id+'">Clear Response</button></div></div>');
+
+})
+$('#template_'+idd).removeClass("btn-default");
+$('#template_'+idd).addClass("btn-success");
+$('#template_'+nextNo).addClass("current");
+$('#next_tab').val($('.current').parent().next().text());
+$('#prev_tab').val($('.current').parent().prev().text());
+
+}
+});
+
+}
+});
+
+$(document).on('click','.prev',function(){
+
+const id = $(this).val();
+const  idd = id.trim();
+// alert(id);
+let checkLast = $('#prev_tab').val();
+alert(checkLast);
+if(checkLast!==''){
+$.ajax({
+type:"POST",
+url:"/test/prevQuestion",
+data:{id:idd},
+cache:false,
+success:function(data){
+$("#home").empty();
+$("#quest").empty();
+let i=0 
+let que = data.questions;
+let quen = data.question;
+console.log(quen[0].count)
+
+
+
+que.forEach(function(question){
+i++;
+$("#quest").append('<div class="col-md-2"><button class="btn btn-default temp" id="template_'+question._id+'" name="id" style="width: 50px; margin: 2px;" value=" '+question._id+' ">' +i+'</button><input type="hidden" id="next_tab" value="0" /><input type="hidden" id="prev_tab" value="0" /></div>');
+
+})
+quen.forEach(function(qst){
+
+$("#home").append('<span>(5 of '+ data.count+') +ve&nbsp; '+ qst.rightMarks+'&nbsp;&nbsp;&nbsp;-ve&nbsp; '+ qst.wrongMarks+'</span><div class="col-8"><h4 class="fw-bold mt-5">2. '+qst.questionTitle+'</h4><hr><div class="row" style="height: 45%;"><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option1+' %></label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+qst.option2+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+qst.option3+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option4+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ qst.option5+'</label></div></div><div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary prev"  id="prev" style="margin-right:5px;" value="'+qst._id+'"  >Previous</button> <button style="margin-right:5px;" class="btn btn-success save" value="'+qst._id+'">Save & Next</button> <button class="btn btn-info clear" value="'+qst._id+'">Clear Response</button></div></div>');
+
+})
+
+}
+});
+
+}
+})
+
+$(document).on('click','.clear',function(){
+
+const id = $(this).val();
+const  idd = id.trim();
+// alert(id);
+$.ajax({
+type:"POST",
+url:"/test/DeleteQuestion",
+data:{id:idd},
+cache:false,
+success:function(data){
+console.log(data)
+$("#home").empty();
+$("#quest").empty();
+let i=0 
+let que = data.questions;
+let quen = data.question;
+que.forEach(function(question){
+i++;
+$("#quest").append('<div class="col-md-2"><button class="btn btn-default temp" id="template_'+question._id+'" name="id" style="width: 50px; margin: 2px;" value=" '+question._id+' ">' +i+'</button><input type="hidden" id="next_tab" value="0" /><input type="hidden" id="prev_tab" value="0" /></div>');
+
+})
+
+i++;
+$("#home").append('<span>(5 of '+ data.count+') +ve&nbsp; '+ quen.rightMarks+'&nbsp;&nbsp;&nbsp;-ve&nbsp; '+ quen.wrongMarks+'</span><div class="col-8"><h4 class="fw-bold mt-5">2. '+quen.questionTitle+'</h4><hr><div class="row" style="height: 45%;"><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ quen.option1+' %></label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+quen.option2+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+quen.option3+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ quen.option4+'</label></div><div class="col-md-6"> <label class="radio-inline" style="margin:10px; font-size: 16px;"><input type="radio" name="box" id="five"> '+ quen.option5+'</label></div></div><div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary prev" style="margin-right:5px;" value="'+quen._id+'">Previous</button><button style="margin-right:5px;" class="btn btn-success save" value="'+quen._id+'">Save & Next</button> <button class="btn btn-info clear" value="'+quen._id+'">Clear Response</button></div></div>');
+
+
+
+}
+});
+
+
+})
+
+
+})
+</script>

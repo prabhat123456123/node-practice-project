@@ -1,0 +1,30 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>Add Page</h2>
+  <div class="text-right">
+    <a href="/admin/page" class="btn btn-primary">Back to Page</a>
+
+</div>
+  <form action="/admin/page/postAddPage" method="POST" enctype="multipart/form-data">
+   
+    <div class="form-group">
+      <label for="email">title:</label>
+      <input type="text" class="form-control"  value="<%= title %>" name="title" id="title" />
+    </div>
+    <div class="form-group">
+      <label for="email">slug:</label>
+      <input type="text" class="form-control"  value="<%= slug %>" name="slug" id="slug" />
+    </div>
+    <div class="form-group">
+      <label for="email">Content:</label>
+      <textarea name="content" id="content"  value="<%= content %>" cols="50" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">Image:</label>
+      <input type="file" class="form-control" name="image" id="image" />
+    </div>
+    <input type="submit" class="btn btn-default" value="Submit">
+  </form>
+</div>
+<%- include('../../partial/admin/footer') %>

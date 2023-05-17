@@ -1,0 +1,53 @@
+<%- include('../../partial/admin/header') %>
+<div class="container">
+  <h2>All Exam</h2>
+  <div class="text-right">
+    <a href="/admin/post/getPDF" class="btn btn-success align-right">Export Data as PDF</a>
+    <a href="/admin/post/getExcel" class="btn btn-success align-right">Export Data as Excel</a>
+    <a href="/admin/post/getAddPost" class="btn btn-primary align-right">Add Exam</a>
+</div>
+<br>
+  <% if(count>0){ %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Exam Code</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% exams.forEach(function(exam){ %>
+
+      <tr>
+        <td><%= exam.examTitle %></td>
+        <td><%= exam.examCode %></td>
+        <td><a href="/admin/post/getEditPost/<%= exam.id %>">Edit</a></td>
+        <td><a href="/admin/post/deletePost/<%= exam.id %>">Delete</a></td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+  <%}else{%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Exam Code</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>No Post Found</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } %>
+
+</div>
+<%- include('../../partial/admin/footer') %>

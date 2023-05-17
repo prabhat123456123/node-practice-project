@@ -1,0 +1,35 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>Edit Post</h2>
+  <form action="/admin/post/postEditPost/<%= id %>" method="POST" enctype="multipart/form-data">
+  
+    
+    <div class="form-group">
+      <label for="email">title:</label>
+      <input type="text" class="form-control" value="<%= title  %>" name="title" id="title" />
+    </div>
+    <div class="form-group">
+      <label for="email">slug:</label>
+      <input type="text" class="form-control" value="<%= slug  %>" name="slug" id="slug" />
+    </div>
+    <div class="form-group">
+      <label for="email">Content:</label>
+      <textarea name="content" id="content" cols="50" rows="10"><%= content  %></textarea>
+    </div>
+    <div class="form-group">
+     
+        <% if(image==""){ %>
+        <img src="/image/noimage.png" alt="" width="100px">
+
+        <% }else{%>
+        <img src="/image/posts/<%= image %>" alt="" width="100px">
+
+        <% } %>
+      <label for="email">Image:</label>
+      <input type="file" class="form-control" name="image" id="image" />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<%- include('../../partial/admin/footer') %>

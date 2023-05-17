@@ -1,0 +1,52 @@
+<%- include('../../partial/admin/header') %>
+<div class="container">
+  <h2>All Subject</h2>
+  <div class="text-right">
+    <a href="/admin/post/getPDF" class="btn btn-success align-right">Export Data as PDF</a>
+    <a href="/admin/post/getExcel" class="btn btn-success align-right">Export Data as Excel</a>
+    <a href="/admin/post/getAddPost" class="btn btn-primary align-right">Add Subject</a>
+</div>
+<br>
+  <% if(count>0){ %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+       
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% subjects.forEach(function(subject){ %>
+
+      <tr>
+        <td><%= subject.title %></td>
+      
+        <td><a href="/admin/post/getEditPost/<%= subject.id %>">Edit</a></td>
+        <td><a href="/admin/post/deletePost/<%= subject.id %>">Delete</a></td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+  <%}else{%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>No Post Found</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } %>
+ 
+</div>
+<%- include('../../partial/admin/footer') %>

@@ -1,0 +1,17 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>Edit Category</h2>
+
+  <form action="/action_page.php">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+    <div class="form-group">
+      <label for="email">Category Name:</label>
+      <input type="text" class="form-control" name="category" id="category" />
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<%- include('../../partial/admin/footer') %>

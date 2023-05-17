@@ -1,0 +1,53 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>All Porducts</h2>
+  <div class="text-right">
+    <a href="/admin/product/getAddProduct" class="btn btn-primary align-right">Add Product</a>
+</div>
+<br>
+  <% if(count>0){ %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(function(product){ %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.price %></td>
+        <td><%= product.category %></td>
+      </tr>
+    <% })%>
+    </tbody>
+  </table>
+  <%}else{%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>No Product Found</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } %>
+</div>
+<%- include('../../partial/admin/footer') %>

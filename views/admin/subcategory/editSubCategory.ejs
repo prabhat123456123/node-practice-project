@@ -1,0 +1,36 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  
+  <h2>Add Category</h2>
+  <div class="text-right">
+    <a href="/admin/subCategory" class="btn btn-primary">Back to Category Page</a>
+
+</div>
+  <form action="/admin/subCategory/postAddSubCategory" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+   
+    <div class="form-group">
+        <label for="email">Category Name:</label>
+        <select name="category" id="">
+            <% categories.forEach(function(category){ %>
+            <option value="<%= title %>"><%= title %></option>
+            <% }) %>
+        </select>
+       
+      </div>
+    <div class="form-group">
+      <label for="email">SubCategory Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        value="<%= title %>"
+        name="title"
+        id="title"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<%- include('../../partial/admin/footer') %>

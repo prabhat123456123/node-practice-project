@@ -1,0 +1,52 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>Add Exam</h2>
+  <div class="text-right">
+    <a href="/admin/test/exam" class="btn btn-primary">Back to Exam</a>
+
+</div>
+  <form action="/admin/test/addExam" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+    <div class="form-group">
+      <label for="email">title:</label>
+      <input type="text" class="form-control"  value="<%= title %>" name="title" id="title" />
+    </div>
+    <div class="form-group">
+      <label for="email">Exam Date:</label>
+      <input type="date" class="form-control" value="<%= examDate %>"  name="examDate" id="slug" />
+    </div>
+    <div class="form-group">
+      <label for="email">Exam Duration:</label>
+      <input type="text" class="form-control" value="<%= examDuration %>"  name="examDuration" id="slug" />
+    </div>
+    <div class="form-group">
+      <label for="email">Totoal Question:</label>
+      <input type="text" class="form-control" value="<%= totalQuestion %>"  name="totalQuestion" id="slug" />
+    </div>
+    <div class="form-group">
+      <label for="email">Exam Status:</label>
+    <select name="examStatus" class="form-control" id="">
+      <option value="Completed">Completed</option>
+      <option value="Not Satrted">Not Satrted</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="email">Level:</label>
+      <select name="level" class="form-control" id="">
+        <option value="Basic">Basic</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="email">Exam Code:</label>
+      <input type="text" class="form-control" value="<%= examCode %>"  name="examCode" id="slug" />
+
+    </div>
+   
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<%- include('../../partial/admin/footer') %>

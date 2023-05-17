@@ -1,0 +1,49 @@
+<%- include('../../partial/admin/header') %>
+
+<div class="container">
+  <h2>All SubCategory</h2>
+  <div class="text-right">
+    <a href="/admin/subCategory/getAddSubCategory" class="btn btn-primary align-right">Add SubCategory</a>
+</div>
+  <br>
+  <% if(count>0){ %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>SubCategory</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% subcategories.forEach(function(subcategory){ %>
+      <tr>
+        <td><%= subcategory.subcategory %></td>
+        <th><%= subcategory.title%></th>
+        <td><a href="">Edit</a></td>
+        <td><a href="">Delete</a></td>
+      </tr>
+   <% }) %>
+    </tbody>
+  </table>
+  <%}else{%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>No SubCategory Found</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } %>
+</div>
+<%- include('../../partial/admin/footer') %>
